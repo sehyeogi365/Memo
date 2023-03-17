@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+#wrap {
+	width:1200px;
+	
+	margin:auto;
+}
+
+
+header{
+	height:70px;
+	background-color:#dddddd;/*f에 가까운 숫자*/
+}
+
+.contents{
+	height:500px;
+}
+
+.contents > .join-box{
+	width:350px;
+
+}
+
+footer {
+	height:60px;
+	background-color:#dddddd;
+}
