@@ -13,4 +13,9 @@ public class UserController {//회원가입 폼 만들려면 레이아웃 부터
 		return "user/signup";
 	}
 	
+	@GetMapping("/signin/view")
+	public String signinInput() {
+		return "user/signin";
+	}
+	
 }

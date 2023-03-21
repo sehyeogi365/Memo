@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.marondal.memo.common.EncryptService;
 import com.marondal.memo.user.dao.UserDAO;
+import com.marondal.memo.user.model.User;
 
 @Service
 public class UserBO {
@@ -25,7 +26,17 @@ public class UserBO {
 		//노란줄이 뜬다. 다오에 암호화 된걸 저장시킨다.
 		return userDAO.insertUser(loginId, ecryptPassword, name, email);//행의 갯수 리턴
 	
-			
-			
 	}
-}
+	
+		//조회	아이디 비밀번호가 일치 하는 사용자 정보 모두 리턴
+		public User getUser(String loginId, String password) {
+			//하나의 유저 객체
+			
+			//똑같은 방식의 암호화
+			String ecyptPassword = EncryptService.md5(password);
+			
+			return userDAO.selectUser(loginId, ecyptPassword);
+		}
+		
+	}
+
