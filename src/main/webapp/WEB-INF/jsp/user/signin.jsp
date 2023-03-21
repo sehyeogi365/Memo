@@ -56,7 +56,7 @@
 					type:"post"
 					, url:"/user/signin"
 					, data:{"loginId" : loginId, "password":password}
-					, success:function(){
+					, success:function(data){
 						if(data.result == "success"){
 							location.href= "/post/list/view";
 							alert("로그인 성공");
