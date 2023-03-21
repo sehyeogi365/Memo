@@ -52,7 +52,6 @@
 					return ;
 				}
 				
-				
 				$.ajax({
 					type:"post"
 					, url:"/user/signin"
@@ -60,7 +59,7 @@
 					, success:function(){
 						if(data.result == "success"){
 							alert("로그인 성공");
-						}else{
+						} else {
 							alert("아이디/비밀번호를 확인해주세요.");
 						}
 					}

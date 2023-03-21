@@ -50,12 +50,9 @@ public class UserRestController {
 			, HttpServletRequest request) {//http servlet 리퀘스트 객체를 얻어오고 그 객체로부터 얻어오고 그객체로부터  세션을 얻어온다.     
 		
 		User user = userBO.getUser(loginId, password);//일치하는 딱 하나의 객체 리턴
-		
-		
+	
 		//결과를 저장할 맵먼저 저장
-		Map <String, String> resultMap = new HashMap<>();
-		
-		
+		Map <String, String> resultMap = new HashMap<>();	
 		
 		if(user != null) {
 			resultMap.put("result", "success");
