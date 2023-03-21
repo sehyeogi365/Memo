@@ -29,7 +29,7 @@ public class UserBO {
 	}
 	
 		//조회	아이디 비밀번호가 일치 하는 사용자 정보 모두 리턴
-		public User getUser(String loginId, String password) {
+		public User getUser(String loginId, String password) {//임포트 조심하기 오늘 개힘들었음
 			//하나의 유저 객체
 			
 			//똑같은 방식의 암호화

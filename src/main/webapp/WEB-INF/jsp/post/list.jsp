@@ -21,7 +21,7 @@
 		<c:import url="/WEB-INF/jsp/include/header.jsp"/>
 		<!-- header footer 재사용 하려면?? -->
 		<section class="contents d-flex justify-content-center"><!-- 가운데로 오게하기 -->
-			<h1 class="text-center">메모 리스트</h1>
+			<h1 class="text-center">타임 라인</h1>
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
 	</div>

@@ -62,7 +62,7 @@ public class UserRestController {
 			session.setAttribute("userId", user.getId());//user테이블의 id 세션이라는 공간에 유저아이디라는 키로 해당하는 아이디값을 저장시킴
 			session.setAttribute("userName", user.getName());// 컨트롤러의 어떤 메소드에서든 다가져다 쓸수 있다. 
 					//모든페이지서 이값을 사용할수있따.				// 어디서든 값을 저장하고 어디서든 갖다 쓸수 있다. 
-			//무분별하게 값을저장하면 메모리를 많이 사용하게 되어 부하가 일어남 최소한으로 꼭필요한 정보만 저장하고 사용
+			//무분별하게 값을저장하면 메모리를 많이 사용하게 되어 부하가 일어남 최소한으로 꼭필요한 정보만 저장하고 사용 (타임아웃)
 		} else {
 			resultMap.put("result", "fail");
 		}

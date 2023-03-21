@@ -58,6 +58,7 @@
 					, data:{"loginId" : loginId, "password":password}
 					, success:function(){
 						if(data.result == "success"){
+							location.href= "/post/list/view";
 							alert("로그인 성공");
 						} else {
 							alert("아이디/비밀번호를 확인해주세요.");

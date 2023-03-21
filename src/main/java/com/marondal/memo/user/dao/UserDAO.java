@@ -21,4 +21,5 @@ public interface UserDAO {
 			@Param("loginId") String loginId //조회할 기준 로그인 아이디, 패스워드
 			, @Param("password") String password); //select 쿼리 수행할떄 조건으로 활용
 			//다오에서 널 리턴해요 객체가 없다. 
+
 }
