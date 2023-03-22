@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.marondal.memo.post.dao.PostDAO">
+  
+  	<insert id="insertPost" parameterType="map">
+  		INSERT INTO
+  			`post`
+  			(
+  				`userId`
+  				, `title`
+  				, `content`
+  				, `imagePath`
+  				, `createdAt`
+  				, `updatedAt`
+  			
+  			)
+  			VALUE
+  			(<!-- dao 선 컨텐트 타이틀 밖에없슨데?? 로그인 대상자의 유저테이블 아이디를 얻어온다.-->
+  				#{userId}
+  				, #{title}
+  				, #{content}
+  				, #{imagePath}
+  				, now()
+  				, now()
+  			
+  			)
+  		
+  	
+  	</insert>
+  	
+  	<select id="selectPostList" parameterType="int"
+  	resultType="com.marondal.memo.post.model.Post"><!-- error 확인 -->
+  		SELECT
+  				`id`
+  				, `userId`
+  				, `title`
+  				, `content`
+  				, `imagePath`
+  				, `createdAt`
+  				, `updatedAt`
+  		FROM
+  				`post`
+  		WHERE<!-- login 한 사람의 메모만 조회해서 보게끔 --> 
+  				`userId` = #{userId}		
+  		ORDER BY
+  			`id` DESC 
+  				
+  				<!-- 가장최근게 위에 -->
+  	</select>
+  	
+  	<select id="selectPost" parameterMap="int"
+  		resultType="com.marondal.memo.post.model.Post">
+  	
+  		SELECT
+  				`id`
+  				, `userId`
+  				, `title`
+  				, `content`  				
+  				, `imagePath`
+  				, `createdAt`
+  				, `updatedAt`
+  		FROM
+  				`post`
+  		WHERE
+  				`id` = #{id}		
+  	</select>
+  
+  
+  
+  </mapper>

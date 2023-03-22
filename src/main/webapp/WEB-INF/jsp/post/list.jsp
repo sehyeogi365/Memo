@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>    <!-- date객체쓰기 -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,38 +34,58 @@
 					</tr>
 				</thead>
 				<tbody>
+					<!-- core 라이브러리 활용 -->
+					
+					<c:forEach var="post" items="${postList }">
 					<tr>
-						<td>4</td>
-						<td>중요한 메모</td>
-						<td>2025-01-04 12:00:00</td>
+						<td>${post.id }</td>
+						<td><a href="/post/detail/view?id=${post.id }">${post.title }</a></td><!-- model 값 -->
+						<td><fmt:formatDate value="${post.createdAt }" pattern="yyyy-MM-dd HH:mm:ss"/></td><!-- 출력형식 대문자HH 24시간을 의미-->
 					</tr>
-					<tr>
-						<td>3</td>
-						<td>적당한 메모</td>
-						<td>2025-01-02 08:40:00</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>그럭저럭</td>
-						<td>2025-01-01 15:00:00</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>오늘 하루</td>
-						<td>2025-01-01 09:00:00</td>
-					</tr>
+					</c:forEach>
 					
 				</tbody>
 				
 				
 			</table>
 			
-		<div class="d-flex justify-content-between">
-			<button type="submit" class="btn btn-primary mt-3" id="writeBtn">글쓰기</button>
+		<div class="d-flex justify-content-end">
+			<button type="submit" class="btn btn-primary mt-3" id="writeBtn" onclick="location.href='/post/create/view' ">글쓰기</button>
 		</div>	
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
 	</div>
+	
+	<script>
+	
+	$(document).ready(function(){
+		$("#writeBtn").on("click", function(){
+			
+			
+			
+			$.ajax({
+				type:"post"
+				, url : "/post/list/create"
+				, data : {""}
+				, success:function(data){
+					
+				}
+				, error:function(){
+					
+				}
+				
+				
+				
+			});
+				
+				
+			
+			
+			
+		});
+	});
+	
+	</script>
 
 </body>
 </html>

@@ -27,20 +27,20 @@
 				<div class="create-box my-5">
 					<div class="d-flex ">
 						
-						<label class="col-2 ml-3"><h3>제목 :</h3></label><input type="text" id = "loginIdInput" placeholder="내용을 입력해주세요" class="form-control col-9 mt-4">
+						<label class="col-2 ml-3"><h3>제목 :</h3></label><input type="text" id = "titleInput" placeholder="내용을 입력해주세요" class="form-control col-9 mt-4">
 					</div>
 				
-				<textarea cols="20" rows="10" id = "textareaInput" placeholder="내용을 입력해주세요" class="mt-4 form-control"></textarea><br>
+				<textarea cols="20" rows="10" id = "contentInput" placeholder="내용을 입력해주세요" class="mt-4 form-control"></textarea><br>
 				
 				
 				<label for="file">
   					<div class="btn-upload">파일 첨부</div>
 				</label>
-				<input type="file" name="file" id="file"><br>
+				<input type="file" name="file" id="fileInput"><br>
 				
 				
 				<div class="d-flex align-items-center justify-content-between">
-					<button type ="submit" class="btn btn-secondary mt-3">목록으로</button>
+					<a href="/post/list/view" class="btn btn-info">목록으로</a>
 					
 					<button type="submit" class="btn btn-secondary" id="saveBtn">저장</button>
 				</div>
@@ -50,6 +50,56 @@
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
 	</div>
-
+	<script>
+		$(document).ready(function(){
+			$("#saveBtn").on("click", function(){
+				let title = $("#titleInput").val();
+				let content = $("#contentInput").val();//나는 처음앞뒤공백안하겠다 .trim()사용
+				let file = $("#fileInput")[0];
+				
+				
+				if(title == "") {
+					alert("제목을 입력하새요");
+					return;
+				}
+				if(content.trim() == "") {
+					alert("내용을 입력하새요");
+					return;
+				}
+				
+				var formData = new FormData();
+				formData.append("title", title);//추가
+				formData.append("content", content);
+				formData.append("file", file.files[0]);//파일목록이 배열처럼 관리가 된다.				
+				
+				$.ajax({
+					type:"post"
+					, url:"/post/create"
+					, data:formData //여기다가 그대로 넣어주기
+					, enctype:"multipart/form-data" // 파일 업로드 필수
+					, processData:false // 파일 업로드 필수
+					, contentType:false // 파일 업로드 필수
+					, success:function(data){
+						if(data.result == "success") { // javax.servlet.http ~~is null 99% login 문제 로그인 된상태가 아니란뜻
+							location.href="/post/list/view";
+						} else {
+							alert("글쓰기 실패");
+						}
+					}
+					, error:function(){
+						alert("글쓰기 실패");
+					}
+					
+				});
+				
+				
+			});
+			
+			
+			
+		});
+		
+	
+	</script>
 </body>
 </html>
