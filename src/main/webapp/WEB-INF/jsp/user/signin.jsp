@@ -17,11 +17,11 @@
 	<link rel="stylesheet" href="/static/css/style.css" type="text/css">
 </head>
 <body>
-		<div id="wrap">
+		<div id="wrap" class="container">
 		<c:import url="/WEB-INF/jsp/include/header.jsp"/>
 		<!-- header footer 재사용 하려면?? -->
 		<section class="contents d-flex justify-content-center"><!-- 가운데로 오게하기 -->
-			<div class="join-box my-5">
+			<div class="login-box my-5">
 				<h1 class="text-center">로그인</h1>
 				<input type="text" id = "loginIdInput" placeholder="로그인 ID" class="form-control mt-4">
 				<input type="password" id = "passwordInput" placeholder="비밀번호" class="form-control mt-2">

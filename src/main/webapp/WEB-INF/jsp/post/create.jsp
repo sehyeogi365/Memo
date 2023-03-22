@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>        
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메모게시판 - 리스트</title>
+<title>메모게시판 - 메모 입력</title>
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	
@@ -16,52 +16,38 @@
 	<link rel="stylesheet" href="/static/css/style.css" type="text/css">
 </head>
 <body>
-
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp"/>
-		<!-- header footer 재사용 하려면?? -->
-		<section class="contents"><!-- 가운데로 오게하기 -->
-			<h1 class="text-center">메모리스트 </h1>
 			
-			<table class="table text-center">
-				<thead>
-					<tr>
-						<th>No.</th>
-						<th>제목</th>
-						<th>시간</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>4</td>
-						<td>중요한 메모</td>
-						<td>2025-01-04 12:00:00</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>적당한 메모</td>
-						<td>2025-01-02 08:40:00</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>그럭저럭</td>
-						<td>2025-01-01 15:00:00</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>오늘 하루</td>
-						<td>2025-01-01 09:00:00</td>
-					</tr>
+			
+			<section class="contents">
+				<h1 class="text-center mt-3">메모 입력</h1>
+				
+				
+				<div class="create-box my-5">
+					<div class="d-flex ">
+						
+						<label class="col-2 ml-3"><h3>제목 :</h3></label><input type="text" id = "loginIdInput" placeholder="내용을 입력해주세요" class="form-control col-9 mt-4">
+					</div>
+				
+				<textarea cols="20" rows="10" id = "textareaInput" placeholder="내용을 입력해주세요" class="mt-4 form-control"></textarea><br>
+				
+				
+				<label for="file">
+  					<div class="btn-upload">파일 첨부</div>
+				</label>
+				<input type="file" name="file" id="file"><br>
+				
+				
+				<div class="d-flex align-items-center justify-content-between">
+					<button type ="submit" class="btn btn-secondary mt-3">목록으로</button>
 					
-				</tbody>
+					<button type="submit" class="btn btn-secondary" id="saveBtn">저장</button>
+				</div>
 				
-				
-			</table>
-			
-		<div class="d-flex justify-content-between">
-			<button type="submit" class="btn btn-primary mt-3" id="writeBtn">글쓰기</button>
-		</div>	
+			</div>
 		</section>
+		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
 	</div>
 

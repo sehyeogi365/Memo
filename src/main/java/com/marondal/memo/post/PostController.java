@@ -12,5 +12,9 @@ public class PostController {
 	public String memoList() {
 		return "post/list";
 	}
+	@GetMapping("/list/create")
+	public String memoCreate() {
+		return "post/create";
+	}
 
 }
