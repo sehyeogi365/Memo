@@ -21,12 +21,15 @@
 		<c:import url="/WEB-INF/jsp/include/header.jsp"/>
 			
 			
-			<section class="contents">
-				<h1 class="text-center mt-3">메모 보기</h1>
+			<section class="contents d-flex justify-content-center">
 				
 				
-				<div class="create-box my-5">
-					<div class="d-flex ">
+				
+				<div class="detail-box my-5">
+				
+					<h1 class="text-center mt-3">메모 보기</h1><br>
+					
+					<div class="d-flex">
 						
 						<label class="col-2 ml-3"><h3>제목 :</h3></label><!-- value 속성 title을 채워라. -->
 						<input type="text" id = "titleInput" value="${post.title }" class="form-control col-9 mt-4">
@@ -39,16 +42,16 @@
   					<div class="btn-upload"></div>
 				</label>
 				<input type="file" name="file" id="file"><br>
-				<img src="${post.imagePath}">
+				<img width = "650px" src="${post.imagePath}">
 				
-				<div class="d-flex  justify-content-between">
+				<div class="d-flex  justify-content-between mx-2 mb-2">
 					
-					<div>
-						<a href="/post/list/view" class="btn btn-info">목록으로</a>
+					<div class="">
+						<a href="/post/list/view" class="btn btn-info mt-3">목록으로</a>
 						<button type ="submit" class="btn btn-danger mt-3">삭제</button>
 					</div>
 
-					<button type="submit" class="btn btn-secondary" id="saveBtn">수정</button>
+					<button type="submit" class="btn btn-secondary mt-3" id="saveBtn">수정</button>
 				</div>
 				
 			</div>

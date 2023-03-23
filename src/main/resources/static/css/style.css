@@ -31,6 +31,9 @@ header{
 .contents > .list-box {
 	width:900px;
 }
+.contents > .detail-box {
+	width:650px;
+}
 
 footer {
 	height:60px;
