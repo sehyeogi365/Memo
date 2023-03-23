@@ -19,7 +19,7 @@
 </head>
 <body>
 
-	<div id="wrap">
+	<div id="wrap" class="container">
 		<c:import url="/WEB-INF/jsp/include/header.jsp"/>
 		<!-- header footer 재사용 하려면?? -->
 		<section class="contents d-flex justify-content-center"><!-- 가운데로 오게하기 -->

@@ -3,7 +3,7 @@
  <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
   <mapper namespace="com.marondal.memo.post.dao.PostDAO">
   
   	<insert id="insertPost" parameterType="map">
@@ -33,15 +33,15 @@
   	</insert>
   	
   	<select id="selectPostList" parameterType="int"
-  	resultType="com.marondal.memo.post.model.Post"><!-- error 확인 -->
+  	 resultType="com.marondal.memo.post.model.Post"><!-- error 확인 -->
   		SELECT
   				`id`
-  				, `userId`
-  				, `title`
-  				, `content`
-  				, `imagePath`
-  				, `createdAt`
-  				, `updatedAt`
+				, `userId`
+				, `title`
+				, `content`
+				, `imagePath`
+				, `createdAt`
+				, `updatedAt`
   		FROM
   				`post`
   		WHERE<!-- login 한 사람의 메모만 조회해서 보게끔 --> 
@@ -52,7 +52,7 @@
   				<!-- 가장최근게 위에 -->
   	</select>
   	
-  	<select id="selectPost" parameterMap="int"
+  	<select id="selectPost" parameterType="int"
   		resultType="com.marondal.memo.post.model.Post">
   	
   		SELECT

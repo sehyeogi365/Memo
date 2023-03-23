@@ -13,7 +13,7 @@ public class FileManagerService {
 	
 	//멤버변수 형태로 구성
 	//
-	private static final String FILE_UPLOAD_PATH = "D:\\임세혁\\spring\\springProject\\upload\\Memo\\image"; //이렇게 되면 상수가 된다.
+	public static final String FILE_UPLOAD_PATH = "D:\\임세혁\\spring\\springProject\\upload\\Memo\\image"; //이렇게 되면 상수가 된다.
 		//member변수 웬만하면 public안쓴다.
 	// 파일 저장 -> 경로 생성
 	// 객체 생성없이 쓸수 있는 메소드 -> static 객체생성없이 쓸수 있도록 구성

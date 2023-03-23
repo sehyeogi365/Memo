@@ -16,15 +16,18 @@
 	<link rel="stylesheet" href="/static/css/style.css" type="text/css">
 </head>
 <body>
-	<div id="wrap">
+	<div id="wrap" class="container">
 		<c:import url="/WEB-INF/jsp/include/header.jsp"/>
 			
 			
 			<section class="contents">
+			
+				<div class="input-box my-5">
+				
 				<h1 class="text-center mt-3">메모 입력</h1>
 				
 				
-				<div class="create-box my-5">
+				
 					<div class="d-flex ">
 						
 						<label class="col-2 ml-3"><h3>제목 :</h3></label><input type="text" id = "titleInput" placeholder="내용을 입력해주세요" class="form-control col-9 mt-4">

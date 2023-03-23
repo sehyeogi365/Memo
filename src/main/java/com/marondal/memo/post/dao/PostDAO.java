@@ -17,9 +17,7 @@ public interface PostDAO {
 			, @Param("imagePath") String imagePath
 			);
 		
-	public List<Post>selectPostList(
-			@Param("userId")int userId	
-			);	
+	public List<Post> selectPostList(@Param("userId") int userId);	
 	
 	public Post selectPost(@Param("id") int id);//한행이므로 클래스
 	

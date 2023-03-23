@@ -19,10 +19,12 @@
 </head>
 <body>
 
-	<div id="wrap">
+	<div id="wrap" class="container">
 		<c:import url="/WEB-INF/jsp/include/header.jsp"/>
 		<!-- header footer 재사용 하려면?? -->
 		<section class="contents"><!-- 가운데로 오게하기 -->
+			<div class="contents list-box my-5">
+			
 			<h1 class="text-center">메모리스트 </h1>
 			
 			<table class="table text-center">
@@ -49,41 +51,18 @@
 				
 			</table>
 			
-		<div class="d-flex justify-content-end">
-			<button type="submit" class="btn btn-primary mt-3" id="writeBtn" onclick="location.href='/post/create/view' ">글쓰기</button>
-		</div>	
+				<div class="d-flex justify-content-end mt-3">
+					<a href="/post/create/view" class="btn btn-primary">글쓰기</a>
+				</div>
+		
+		</div>
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
 	</div>
 	
 	<script>
 	
-	$(document).ready(function(){
-		$("#writeBtn").on("click", function(){
-			
-			
-			
-			$.ajax({
-				type:"post"
-				, url : "/post/list/create"
-				, data : {""}
-				, success:function(data){
-					
-				}
-				, error:function(){
-					
-				}
-				
-				
-				
-			});
-				
-				
-			
-			
-			
-		});
-	});
+	
 	
 	</script>
 

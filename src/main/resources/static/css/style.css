@@ -24,6 +24,13 @@ header{
 	width:350px;
 
 }
+.contents > .input-box {
+	width:650px;
+}
+
+.contents > .list-box {
+	width:900px;
+}
 
 footer {
 	height:60px;
