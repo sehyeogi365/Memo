@@ -27,7 +27,7 @@ public class PostRestController {//api를 위한 컨트롤러
 			
 			@RequestParam("title") String title
 			, @RequestParam("content") String content
-			, @RequestParam("file") MultipartFile file//실제파일과 파일 관련정보저장
+			, @RequestParam(value="file", required=false) MultipartFile file//실제파일과 파일 관련정보저장	//Required request part 'file' is not present 파일이없어도 글이 저장되게 하려면???value="file", required=false
 			, HttpSession session) {// session을 통해서 값을 얻어오기
 		
 		int userId = (Integer)session.getAttribute("userId");//값구해오기
@@ -35,7 +35,7 @@ public class PostRestController {//api를 위한 컨트롤러
 						//원래 형태인 Integer 형태로 캐스팅해서 저장
 						
 		int count = postBO.addPost(userId, title, content, file);
-		
+		// get Attribute null 오류 = 로그인이 안되었다는 뜻.
 		Map<String, String> resultMap = new HashMap<>();//제이슨 형태인 맵
 		
 		if(count == 1) {

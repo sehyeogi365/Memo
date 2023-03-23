@@ -14,10 +14,17 @@ public class FileManagerService {
 	//멤버변수 형태로 구성
 	//
 	public static final String FILE_UPLOAD_PATH = "D:\\임세혁\\spring\\springProject\\upload\\Memo\\image"; //이렇게 되면 상수가 된다.
-		//member변수 웬만하면 public안쓴다.
+		//member변수 웬만하면 public안쓴다.				//경로 잘 지정하고 슬래쉬 잘구분하기
 	// 파일 저장 -> 경로 생성
 	// 객체 생성없이 쓸수 있는 메소드 -> static 객체생성없이 쓸수 있도록 구성
 	public static String saveFile(int userId, MultipartFile file) {//접근하기 위한 경로 리턴
+		
+		
+		if(file == null) {//file이 널이라면?
+			
+			return null;
+			
+		}
 		
 		// 파일명이 같으면 안되니 그거 생각 
 		// 사용자 별로 폴더 구분 
@@ -38,7 +45,7 @@ public class FileManagerService {
 		
 		// 파일 저장
 		try {
-			byte[] bytes = file.getBytes();
+			byte[] bytes = file.getBytes();//이게 널이라서 500error Cannot invoke "org.springframework.web.multipart.MultipartFile.getBytes()" because "file" is null
 			
 			String filePath = directoryPath + file.getOriginalFilename();//파일명 포함한 전체경로
 			Path path = Paths.get(filePath);

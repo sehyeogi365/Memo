@@ -29,8 +29,6 @@ public class PostBO {
 	
 	public List<Post>getPostList(int userId) {//여러개이므로 리스트 게시글들 영러개 저장 <>안에 객체 여기도 파라미터
 		return postDAO.selectPostList(userId);
-		
-		
 	}
 	
 	public Post getPost(int id) {

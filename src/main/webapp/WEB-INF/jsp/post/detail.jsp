@@ -36,7 +36,7 @@
 				</div><!-- 400에러는 파라미터문제 -->
 				
 				<label for="file">
-  					<div class="btn-upload">파일 첨부</div>
+  					<div class="btn-upload"></div>
 				</label>
 				<input type="file" name="file" id="file"><br>
 				<img src="${post.imagePath}">

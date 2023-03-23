@@ -37,12 +37,12 @@
 				
 				
 				<label for="file">
-  					<div class="btn-upload">파일 첨부</div>
+  					<div class="btn-upload"></div>
 				</label>
 				<input type="file" name="file" id="fileInput"><br>
 				
 				
-				<div class="d-flex align-items-center justify-content-between">
+				<div class="d-flex align-items-center justify-content-between mt-3">
 					<a href="/post/list/view" class="btn btn-info">목록으로</a>
 					
 					<button type="submit" class="btn btn-secondary" id="saveBtn">저장</button>
@@ -62,11 +62,11 @@
 				
 				
 				if(title == "") {
-					alert("제목을 입력하새요");
+					alert("제목을 입력하세요");
 					return;
 				}
 				if(content.trim() == "") {
-					alert("내용을 입력하새요");
+					alert("내용을 입력하세요");
 					return;
 				}
 				
