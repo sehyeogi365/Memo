@@ -22,4 +22,6 @@ public interface UserDAO {
 			, @Param("password") String password); //select 쿼리 수행할떄 조건으로 활용
 			//다오에서 널 리턴해요 객체가 없다. 
 
+	public User selectUserById(@Param("userId") int id);//한행의 정보이니 user
+	
 }

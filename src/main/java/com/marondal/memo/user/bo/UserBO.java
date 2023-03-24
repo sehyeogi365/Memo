@@ -38,5 +38,10 @@ public class UserBO {
 			return userDAO.selectUser(loginId, ecyptPassword);
 		}
 		
+		
+		public User getUserById(int userId) {//카드정보 얻어오는거여기서 만듦
+			return userDAO.selectUserById(userId);
+		}
+		
 	}
 
