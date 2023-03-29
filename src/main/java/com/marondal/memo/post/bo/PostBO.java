@@ -37,5 +37,22 @@ public class PostBO {
 				//쿼리수행한결과 dao
 	}
 	
+	public int updatePost(int postId, String title, String content) {
+				
+		return postDAO.updatePost(postId, title, content);		
+		
+	}
+	
+	public int deletePost(int postId) {//파일삭제기능 역시나 비오서 구현 이미지패스값도 확인
+		
+		Post post = postDAO.selectPost(postId);//post객체 확인
+		FileManagerService.removeFile(post.getImagePath());//해당파일지우기 파일매니저 서비스 ㄱㄱ. 여기서 삭제기능만들자.
+		
+		return postDAO.deletePost(postId);
+	}
+	
+	
+	
+	
 	
 }

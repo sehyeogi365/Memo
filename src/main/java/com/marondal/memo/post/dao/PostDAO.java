@@ -21,4 +21,12 @@ public interface PostDAO {
 	
 	public Post selectPost(@Param("id") int id);//한행이므로 클래스
 	
+	public int updatePost(
+			@Param("id") int id
+			, @Param("title") String title
+			, @Param("content") String content
+			);
+	
+	public int deletePost(@Param("id") int id);//아이디값 안뜬다고 에러 "postId"->id변경
+	
 }

@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FileManagerService {
@@ -14,7 +16,9 @@ public class FileManagerService {
 	//멤버변수 형태로 구성
 	//
 	public static final String FILE_UPLOAD_PATH = "D:\\임세혁\\spring\\springProject\\upload\\Memo\\image"; //이렇게 되면 상수가 된다.
-		//member변수 웬만하면 public안쓴다.				//경로 잘 지정하고 슬래쉬 잘구분하기
+	
+	private static Logger logger = LoggerFactory.getLogger(FileManagerService.class);
+	//member변수 웬만하면 public안쓴다.				//경로 잘 지정하고 슬래쉬 잘구분하기
 	// 파일 저장 -> 경로 생성
 	// 객체 생성없이 쓸수 있는 메소드 -> static 객체생성없이 쓸수 있도록 구성
 	public static String saveFile(int userId, MultipartFile file) {//접근하기 위한 경로 리턴
@@ -39,7 +43,7 @@ public class FileManagerService {
 		File directory = new File(directoryPath);//java.io.file 
 		if(!directory.mkdir()){//makedirectory
 			//디렉토리 생성 실패 
-			
+			logger.error("saveFile : 디렉토리 생성 실패 " + directoryPath);
 			return null;
 		}
 		
@@ -67,6 +71,58 @@ public class FileManagerService {
 		return "/images" + directoryName + file.getOriginalFilename();//
 		
 	}
+	//파일 삭제 기능
+		//error 상황 있는지없는지 여부 
+		public static boolean removeFile(String filePath) {// /images/3_1679555233165/blackbird-gf24ea6421_1280.jpg
+			
+			
+			if(filePath == null) {
+				logger.info("삭제 대상 파일 없음");
+				return false;
+			}
+			
+			//실제 파일 저장 경로 찾기
+			// /images 를 제거하고, 나머지 부분을 FILE_UPLAOD_PATH에 이어붙인다.
+			//파일 저장위치 D:\\임세혁\\spring\\springProject\\upload\\memo\\image/3_1679555233165/blackbird-gf24ea6421_1280.jpg
+
+			String fullFilePath = FILE_UPLOAD_PATH + filePath.replace("/images", "");
+			Path path = Paths.get(fullFilePath);		
+			
+			// 파일이 존재하는지 
+			if(Files.exists(path)) {
+				
+				try {
+					Files.delete(path);
+				} catch (IOException e) {
+					
+					logger.error("removeFile : 파일 삭제 에러 " + fullFilePath);//에러메시지를 문자로 쓴다.
+					e.printStackTrace();
+					return false;//오류 발생시 더이상 진행하지말라.
+				}
+			}
+			
+			
+			
+			//디렉토리 제거 
+			//상위 경로 디렉토리 경로
+			Path dirPath = path.getParent();
+			
+			if(Files.exists(dirPath)) {
+				try {
+					Files.delete(dirPath);
+				} catch (IOException e) {
+					logger.error("removeFile : 디렉토리 삭제 에러 " + fullFilePath);
+					e.printStackTrace();
+					return false;
+				}
+				
+			}
+			
+			return true;
+			
+			
+		}
+
 	
 	
 	

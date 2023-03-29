@@ -48,10 +48,10 @@
 					
 					<div class="">
 						<a href="/post/list/view" class="btn btn-info mt-3">목록으로</a>
-						<button type ="submit" class="btn btn-danger mt-3">삭제</button>
+						<button type ="button" class="btn btn-danger mt-3" data-post-id="${post.id }" id="deleteBtn">삭제</button><!-- 여기도 마찬가지 심어주기 data속성 -->
 					</div>
-
-					<button type="submit" class="btn btn-secondary mt-3" id="saveBtn">수정</button>
+												<!-- model에서 불러온값 -->
+					<button type="button" data-post-id="${post.id }" class="btn btn-secondary" id="modifyBtn">수정</button>
 				</div>
 				
 			</div>
@@ -59,6 +59,90 @@
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
 	</div>
-
+	
+	
+	<script>
+		$(document).ready(function(){
+			
+			
+			$("#deleteBtn").on("click", function(){
+				
+				let postId = $(this).data("post-id");//대문자 들어가면 절대 안됨.
+				
+				$.ajax({
+					type:"get"
+					, url:"/post/delete"
+					, data{"postId": postId}
+					, success:function(data){
+						if(data.result == "success") {
+							location.href="/post/list/view";
+						} else {
+							alert("삭제 실패");
+						}
+						
+						
+					}
+					, error:function(){
+						
+						alert("삭제 에러");
+					}
+					
+				});
+				
+				
+			});
+			
+			
+			
+			$("#modifyBtn").on("click", function(){
+				
+				let postId = $(this).data("post-id");
+				
+				let title = $("#titleInput").val();
+				let content = $("#contentInput").val();
+				
+				
+				if(title == ""){
+					
+					alert("제목을 입력하세요");
+					return ;
+				}
+				
+				if(content ==""){
+					alert("내용을 입력하세요");
+					
+				}
+				
+				$.ajax({
+					type :"post"
+					, url:"/post/update"
+					, data:{"postId":postId, "title":title, "content":content}
+					, success :function(){
+						
+						if(data.result == "success") {
+							location.reload();
+						} else {
+							alert("수정실패");
+						}
+						
+					}
+					, error: function(){
+						alert("수정에러");
+					}//근데 이렇게 하니 alert는 안뜬다. 목록으로 가보니 수정되있는게 확인됨.
+					
+				});
+				
+				
+				
+			});
+				
+			
+			
+		});
+	
+	
+	</script>
+	
+	
 </body>
 </html>

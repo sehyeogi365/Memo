@@ -47,4 +47,55 @@ public class PostRestController {//api를 위한 컨트롤러
 		return resultMap;	
 	
 	}
+	
+	@PostMapping("/update")
+	public Map<String, String>modifyPost(
+			@RequestParam("postId") int postId
+			, @RequestParam("title") String title
+			, @RequestParam("content") String content) {
+				
+		
+		int count = postBO.updatePost(postId, title, content);//행의 갯수 리턴
+		
+		Map<String, String> resultMap = new HashMap<>();
+		
+		if(count == 1) {
+			resultMap.put("result", "success");
+		} else {
+			resultMap.put("result", "fail");
+		}
+		
+		return resultMap;
+		
+		
+	}
+	
+	
+	
+	@GetMapping("/delete")
+	public Map<String, String>deletePost(
+			@RequestParam("postId") int postId) {
+		
+		
+		int count = postBO.deletePost(postId);
+		
+		Map<String, String> resultMap = new HashMap<>();
+		
+		
+		if(count == 1) {
+			resultMap.put("result", "success");
+		} else {
+			resultMap.put("result", "fail");
+		}
+		
+		
+		return resultMap;
+		
+		
+		
+	}
+	
+	
+	
+	
 }
