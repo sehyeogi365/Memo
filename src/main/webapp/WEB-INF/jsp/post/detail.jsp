@@ -72,7 +72,7 @@
 				$.ajax({
 					type:"get"
 					, url:"/post/delete"
-					, data{"postId": postId}
+					, data:{"postId": postId}
 					, success:function(data){
 						if(data.result == "success") {
 							location.href="/post/list/view";
@@ -114,10 +114,10 @@
 				}
 				
 				$.ajax({
-					type :"post"
+					type:"post"
 					, url:"/post/update"
 					, data:{"postId":postId, "title":title, "content":content}
-					, success :function(){
+					, success:function(data){
 						
 						if(data.result == "success") {
 							location.reload();

@@ -82,7 +82,7 @@
   	
   	</update>
   	
-  	<delete id ="deletPost" parameterType="int" >
+  	<delete id ="deletePost" parameterType="int" >
   	
   		DELETE FROM
   			`post`
