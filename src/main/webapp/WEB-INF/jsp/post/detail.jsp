@@ -46,7 +46,7 @@
 				
 				<div class="d-flex  justify-content-between mx-2 mb-2">
 					
-					<div class="">
+					<div>
 						<a href="/post/list/view" class="btn btn-info mt-3">목록으로</a>
 						<button type ="button" class="btn btn-danger mt-3" data-post-id="${post.id }" id="deleteBtn">삭제</button><!-- 여기도 마찬가지 심어주기 data속성 -->
 					</div>
@@ -110,7 +110,7 @@
 				
 				if(content ==""){
 					alert("내용을 입력하세요");
-					
+					return ;
 				}
 				
 				$.ajax({

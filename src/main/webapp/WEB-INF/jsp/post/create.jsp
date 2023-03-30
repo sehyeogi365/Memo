@@ -16,11 +16,11 @@
 	<link rel="stylesheet" href="/static/css/style.css" type="text/css">
 </head>
 <body>
-	<div id="wrap" class="container">
+	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp"/>
 			
 			
-			<section class="contents">
+			<section class="contents d-flex justify-content-center">
 			
 				<div class="input-box my-5">
 				
