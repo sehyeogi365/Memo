@@ -31,7 +31,7 @@ public class PermissionInterceptor implements HandlerInterceptor{
 			// user 로 시작하는 페이지에 접근하려고 하면 
 			// 리스트 페이지로 이동시켜라
 
-			if(uri.startsWith("/user/signup/view")) {//user 라는 시작하는걸로 접근할려면?
+			if(uri.startsWith("/user")) {//user 라는 시작하는걸로 접근할려면?
 				// 리다이렉트 
 				response.sendRedirect("/post/list/view");//이동하고픈 주소
 				//다른페이지로 이동하는거를 대신 try catch 대신 throw
