@@ -28,7 +28,7 @@
 			
 				<button type="button" class="btn btn-info btn-block mt-3" id="loginBtn">로그인</button>
 				<div class="text-center mt-4">
-					<a href="/user/signup/view" class="text-center">회원가입</a>
+					<a href="/user/signup/view" class="text-center">로그인</a>
 				</div>
 			</div>
 		</section>

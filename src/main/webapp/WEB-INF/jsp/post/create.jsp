@@ -90,7 +90,7 @@
 						}
 					}
 					, error:function(){
-						alert("글쓰기 실패");
+						alert("글쓰기 에러");
 					}
 					
 				});
