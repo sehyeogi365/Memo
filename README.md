@@ -3,6 +3,7 @@
 
  💪Skills
   
+  <div class="text-center">
  JAVA
  <img src="https://img.shields.io/badge/JAVA-4479A1?style=flat-square&logo=JAVA&logoColor=white"/>
   
@@ -30,9 +31,15 @@ Jsp Servlet
 Spring Boot
 <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat-square&logo=Spring Boot&logoColor=white"/>
   
-  
+Bootstrap
+<img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=Bootstrap&logoColor=white"/>
+
 Git Hub
 <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>
+  
+
+</div>
+
   
 
   
