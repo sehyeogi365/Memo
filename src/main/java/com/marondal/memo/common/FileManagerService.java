@@ -15,7 +15,7 @@ public class FileManagerService {
 	
 	//멤버변수 형태로 구성
 	//
-	public static final String FILE_UPLOAD_PATH = "D:\\임세혁\\spring\\springProject\\upload\\Memo\\image"; //이렇게 되면 상수가 된다.
+	public static final String FILE_UPLOAD_PATH = "D:\\limsehyeok\\spring\\springProject\\upload\\Memo\\image"; //이렇게 되면 상수가 된다.
 	
 	private static Logger logger = LoggerFactory.getLogger(FileManagerService.class);
 	//member변수 웬만하면 public안쓴다.				//경로 잘 지정하고 슬래쉬 잘구분하기
